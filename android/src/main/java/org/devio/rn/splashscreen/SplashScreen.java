@@ -5,6 +5,9 @@ import android.app.Dialog;
 import android.os.Build;
 
 import java.lang.ref.WeakReference;
+import android.widget.ImageView;
+import android.view.animation.AnimationUtils;
+import android.view.animation.Animation;
 
 /**
  * SplashScreen
@@ -34,6 +37,11 @@ public class SplashScreen {
 
                     if (!mSplashDialog.isShowing()) {
                         mSplashDialog.show();
+                        ImageView icon = (ImageView) mSplashDialog.findViewById(R.id.pulse);
+                        if(icon != null) {
+                          Animation animation = AnimationUtils.loadAnimation(activity, R.anim.pulse_animation);
+                          icon.startAnimation(animation);
+                        }
                     }
                 }
             }
