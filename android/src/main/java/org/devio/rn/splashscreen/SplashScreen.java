@@ -21,6 +21,14 @@ public class SplashScreen {
     private static Dialog mSplashDialog;
     private static WeakReference<Activity> mActivity;
 
+    /*
+     *  Чтобы дальше не патчить метод show - можно получить референс диалога
+     *  и управлять им из своей активности
+     */
+    public static Dialog getDialog() {
+        return mSplashDialog;
+    }
+
     /**
      * 打开启动屏
      */
